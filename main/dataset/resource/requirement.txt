@@ -1,0 +1,5 @@
+Next, I will provide you with code requirements, and you will generate the code.
+Please note that there is a rule for your responses : 
+From now on, in your responses, in any cases, DO NOT include any natural language, explanations, descriptions, or introductions.
+Only provide Java code directly in your responses.
+DO NOT start with "Sure, here's an implementation..."
