@@ -1,6 +1,13 @@
-Project_CodeNet/
+main/dataset/Project_CodeNet/
+
+main/dataset/generated_all/
+
+main/dataset/generated/
+main/dataset/gen_test/
+
+main/dataset/human/
+main/dataset/hu_test/
 
 main/dataset/resource/api-key.txt
 
-main/dataset/
 codebert_finetuned/
