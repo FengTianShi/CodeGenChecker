@@ -45,22 +45,22 @@ for i in range(len(generated_code_list)):
 for i in range(len(human_code_list)):
     test_labels.append(1)
 
-# 对测试数据进行编码
+# Encode the test data
 test_inputs = tokenizer(test_codes, padding=True, truncation=True, return_tensors="pt")
 test_input_ids = test_inputs["input_ids"]
 test_attention_mask = test_inputs["attention_mask"]
 test_labels = torch.tensor(test_labels)
 
-# 创建测试数据加载器
+# Create test data loader
 test_dataset = TensorDataset(test_input_ids, test_attention_mask, test_labels)
 test_dataloader = DataLoader(test_dataset, batch_size=2)
 
-# 评估模型
-model.eval()  # 设置模型为评估模式
+# Evaluate the model
+model.eval()  # Set the model to evaluation mode
 total_eval_accuracy = 0
 
 
-# 准确率计算函数
+# Function to calculate accuracy
 def flat_accuracy(preds, labels):
     pred_flat = np.argmax(preds, axis=1).flatten()
     labels_flat = labels.flatten()
@@ -77,9 +77,9 @@ for batch in test_dataloader:
     logits = logits.detach().cpu().numpy()
     label_ids = batch_labels.to("cpu").numpy()
 
-    # 计算准确率
+    # Calculate accuracy
     total_eval_accuracy += flat_accuracy(logits, label_ids)
 
-# 计算平均准确率
+# Calculate average accuracy
 avg_accuracy = total_eval_accuracy / len(test_dataloader)
-print("测试集上的准确率: {:.2f}".format(avg_accuracy))
+print("Accuracy on the test set: {:.2f}".format(avg_accuracy))
